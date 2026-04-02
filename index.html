@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teachers' Professional Development | British Hills</title>
     
-    <!-- Google Fonts: Inter for maximum legibility and professional clarity -->
+    <!-- Google Fonts: Inter for maximum legibility -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,12 +22,11 @@
                         sans: ['"Inter"', 'sans-serif'],
                     },
                     colors: {
-                        institution: {
-                            navy: '#0B1E36',     /* Deep, reliable navy */
-                            blue: '#1A365D',     /* Standard academic blue */
-                            light: '#F8FAFC',    /* Very light slate for backgrounds */
-                            border: '#E2E8F0',   /* Clean border color */
-                            accent: '#0284C7'    /* Professional sky blue accent */
+                        pamphlet: {
+                            navy: '#0e1526',     /* Deep pamphlet background navy */
+                            teal: '#00b48d',     /* Vivid bluey-green accent */
+                            light: '#f4f4f2',    /* Soft off-white background */
+                            text: '#2d3748',     /* Dark text for readability */
                         }
                     }
                 }
@@ -41,115 +40,134 @@
         body.lang-ja .en { display: none !important; }
         
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in {
             animation: fadeIn 0.8s ease-out forwards;
         }
     </style>
 </head>
-<body class="lang-en min-h-screen bg-white font-sans text-slate-800 selection:bg-institution-accent selection:text-white">
+<body class="lang-en min-h-screen bg-pamphlet-light font-sans text-pamphlet-text selection:bg-pamphlet-teal selection:text-white">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white border-b border-institution-border shadow-sm">
+    <nav class="sticky top-0 z-50 bg-white shadow-sm">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center">
                 <!-- British Hills Logo -->
                 <img src="assets/logo.png" alt="British Hills Logo" class="h-10 w-auto">
             </div>
             
-            <!-- Language Toggle (Clean, Pill format) -->
-            <div class="flex bg-institution-light rounded-full p-1 border border-institution-border">
-                <button onclick="setLanguage('en')" id="btn-en" class="px-5 py-1.5 text-sm font-semibold transition-colors duration-200 bg-white text-institution-navy rounded-full shadow-sm border border-slate-200">
+            <!-- Language Toggle -->
+            <div class="flex bg-pamphlet-light rounded-full p-1 border border-gray-200">
+                <button onclick="setLanguage('en')" id="btn-en" class="px-5 py-1.5 text-sm font-semibold transition-colors duration-200 bg-white text-pamphlet-navy rounded-full shadow-sm border border-gray-200">
                     English
                 </button>
-                <button onclick="setLanguage('ja')" id="btn-ja" class="px-5 py-1.5 text-sm font-semibold transition-colors duration-200 text-slate-500 hover:text-institution-navy rounded-full border border-transparent">
+                <button onclick="setLanguage('ja')" id="btn-ja" class="px-5 py-1.5 text-sm font-semibold transition-colors duration-200 text-gray-500 hover:text-pamphlet-navy rounded-full border border-transparent">
                     日本語
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="bg-institution-navy text-white pt-20 pb-24 border-b-8 border-institution-accent">
+    <!-- Hero Section (Dark Navy from Pamphlet) -->
+    <header class="bg-pamphlet-navy text-white pt-24 pb-20">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="animate-fade-in">
-                <p class="text-institution-accent font-bold tracking-widest text-sm uppercase mb-4">
-                    <span class="en">Confidence &bull; Creativity &bull; Communication</span>
-                    <span class="ja">自信・創造性・コミュニケーション</span>
-                </p>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight text-white">
+                <!-- Small Teal Header -->
+                <p class="text-pamphlet-teal font-bold tracking-widest text-sm uppercase mb-6">
                     <span class="en">Teachers' Professional Development</span>
                     <span class="ja">教員向けプロフェッショナル・ディベロップメント</span>
+                </p>
+                
+                <!-- Main Title -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-2 leading-tight text-white uppercase">
+                    <span class="en">Confidence. Creativity.</span>
+                    <span class="ja">自信。創造性。</span>
                 </h1>
-                <p class="text-xl sm:text-2xl text-slate-300 max-w-3xl mx-auto mb-10 font-medium leading-snug">
+                
+                <!-- Teal Emphasis -->
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-8 leading-tight text-pamphlet-teal uppercase">
+                    <span class="en">Communication.</span>
+                    <span class="ja">コミュニケーション。</span>
+                </h2>
+                
+                <!-- Subtitle -->
+                <p class="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto font-medium leading-snug">
                     <span class="en">Transform your classroom into an active environment for English learning and use.</span>
                     <span class="ja">あなたの教室を、英語を学び、活用するためのアクティブな環境へと変えましょう。</span>
                 </p>
-                
-                <div class="bg-white/10 p-6 sm:p-8 rounded-lg border border-white/20 max-w-3xl mx-auto backdrop-blur-sm">
-                    <p class="text-lg text-white leading-relaxed font-medium">
-                        <span class="en">Our course gets you active. We emphasise practical workshops and actual lesson creation to ensure you leave with skills you can use tomorrow.</span>
-                        <span class="ja">本コースは、受講者が主体的に動く内容となっています。実践的なワークショップと実際のレッスン作成を重視しており、受講した翌日からすぐに使えるスキルを身につけてお帰りいただけることを保証します。</span>
-                    </p>
-                </div>
             </div>
         </div>
     </header>
 
+    <!-- Intro Text Band -->
+    <section class="bg-pamphlet-light py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl sm:text-3xl font-bold text-pamphlet-navy mb-6">
+                <span class="en">Our course gets you active.</span>
+                <span class="ja">本コースは、受講者が主体的に動く内容となっています。</span>
+            </h3>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
+                <span class="en">We emphasise practical workshops and actual lesson creation to ensure you leave with skills you can use tomorrow.</span>
+                <span class="ja">実践的なワークショップと実際のレッスン作成を重視しており、受講した翌日からすぐに使えるスキルを身につけてお帰りいただけることを保証します。</span>
+            </p>
+        </div>
+    </section>
+
     <!-- Achievements Section -->
-    <section class="py-20 bg-institution-light">
+    <section class="pb-20 pt-8 bg-pamphlet-light">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Pamphlet Style Section Header -->
             <div class="mb-12 text-center flex flex-col items-center">
-                <h2 class="text-3xl font-bold text-institution-navy tracking-tight">
+                <h2 class="text-2xl font-bold text-pamphlet-navy uppercase tracking-wider mb-4">
                     <span class="en">What You Will Achieve</span>
                     <span class="ja">コースで達成できること</span>
                 </h2>
-                <div class="w-16 h-1 bg-institution-accent mt-4"></div>
+                <div class="w-full max-w-4xl h-px bg-gray-300"></div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 <!-- Achievement 1 -->
-                <div class="bg-white p-8 border border-institution-border rounded-lg shadow-sm text-center flex flex-col items-center">
-                    <div class="w-12 h-12 bg-institution-light rounded-lg flex items-center justify-center mb-6 border border-slate-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-institution-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                <div class="bg-white p-8 border border-gray-200 shadow-sm text-center flex flex-col items-center group hover:border-pamphlet-teal transition-colors duration-300">
+                    <div class="w-12 h-12 bg-pamphlet-light rounded-full flex items-center justify-center mb-6 group-hover:bg-pamphlet-teal/10 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-pamphlet-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-institution-navy leading-snug">
+                    <h3 class="text-xl font-bold mb-3 text-pamphlet-navy leading-snug">
                         <span class="en">Create a Truly Communicative Classroom</span>
                         <span class="ja">真にコミュニケーションを重視した教室作り</span>
                     </h3>
-                    <p class="text-slate-600 leading-relaxed font-medium">
+                    <p class="text-gray-600 leading-relaxed font-medium">
                         <span class="en">Move past theory. Learn concrete ways of enhancing student language use.</span>
                         <span class="ja">理論だけで終わらせない。生徒の言語活用を強化するための具体的な方法を学びます。</span>
                     </p>
                 </div>
 
                 <!-- Achievement 2 -->
-                <div class="bg-white p-8 border border-institution-border rounded-lg shadow-sm text-center flex flex-col items-center">
-                    <div class="w-12 h-12 bg-institution-light rounded-lg flex items-center justify-center mb-6 border border-slate-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-institution-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <div class="bg-white p-8 border border-gray-200 shadow-sm text-center flex flex-col items-center group hover:border-pamphlet-teal transition-colors duration-300">
+                    <div class="w-12 h-12 bg-pamphlet-light rounded-full flex items-center justify-center mb-6 group-hover:bg-pamphlet-teal/10 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-pamphlet-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-institution-navy leading-snug">
+                    <h3 class="text-xl font-bold mb-3 text-pamphlet-navy leading-snug">
                         <span class="en">Quickly Make Quality Activities and Materials</span>
                         <span class="ja">質の高いアクティビティと教材を素早く作成</span>
                     </h3>
-                    <p class="text-slate-600 leading-relaxed font-medium">
+                    <p class="text-gray-600 leading-relaxed font-medium">
                         <span class="en">Access a library of pre-made materials, activity booklets, and online makers to save prep time.</span>
                         <span class="ja">事前作成済みの教材ライブラリ、アクティビティ・ブックレット、オンラインメーカーを活用することで、授業準備の時間を短縮できます。</span>
                     </p>
                 </div>
 
                 <!-- Achievement 3 -->
-                <div class="bg-white p-8 border border-institution-border rounded-lg shadow-sm text-center flex flex-col items-center">
-                    <div class="w-12 h-12 bg-institution-light rounded-lg flex items-center justify-center mb-6 border border-slate-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-institution-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                <div class="bg-white p-8 border border-gray-200 shadow-sm text-center flex flex-col items-center group hover:border-pamphlet-teal transition-colors duration-300">
+                    <div class="w-12 h-12 bg-pamphlet-light rounded-full flex items-center justify-center mb-6 group-hover:bg-pamphlet-teal/10 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-pamphlet-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-institution-navy leading-snug">
+                    <h3 class="text-xl font-bold mb-3 text-pamphlet-navy leading-snug">
                         <span class="en">Build for Different Methodologies</span>
                         <span class="ja">多様な教授法に対応する力の養成</span>
                     </h3>
-                    <p class="text-slate-600 leading-relaxed font-medium">
+                    <p class="text-gray-600 leading-relaxed font-medium">
                         <span class="en">Master both PPP (Presentation, Practice, Production) and TBL (Task-Based Learning) frameworks.</span>
                         <span class="ja">PPP (Presentation, Practice, Production) とTBL (Task-Based Learning) の両方のフレームワークを習得します。</span>
                     </p>
@@ -158,86 +176,86 @@
         </div>
     </section>
 
-    <!-- Course Guide Section (Timeline Layout) -->
-    <section class="py-20 bg-white border-t border-slate-200">
+    <!-- Course Guide Section -->
+    <section class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16 text-center flex flex-col items-center">
-                <h2 class="text-3xl font-bold text-institution-navy tracking-tight">
+            <div class="mb-12 text-center flex flex-col items-center">
+                <h2 class="text-2xl font-bold text-pamphlet-navy uppercase tracking-wider mb-4">
                     <span class="en">Course Curriculum</span>
                     <span class="ja">コースカリキュラム</span>
                 </h2>
-                <div class="w-16 h-1 bg-institution-accent mt-4"></div>
+                <div class="w-full max-w-2xl h-px bg-gray-300"></div>
             </div>
 
             <!-- Centered Structure -->
-            <div class="space-y-8 max-w-3xl mx-auto">
+            <div class="space-y-6 max-w-3xl mx-auto">
                 
                 <!-- Lesson 1 -->
-                <div class="bg-white p-8 rounded-lg border border-slate-200 shadow-sm text-center flex flex-col items-center">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-institution-navy text-white font-bold text-sm mb-4">1</div>
-                    <h3 class="text-xl font-bold text-institution-navy mb-2">
+                <div class="bg-pamphlet-light p-8 border border-gray-200 text-center flex flex-col items-center">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-pamphlet-navy text-white font-bold text-sm mb-4">1</div>
+                    <h3 class="text-xl font-bold text-pamphlet-navy mb-2">
                         <span class="en">Course Introduction & Manor House Tour</span>
                         <span class="ja">コース導入 & マナーハウスツアー</span>
                     </h3>
-                    <p class="text-slate-600 leading-relaxed font-medium">
+                    <p class="text-gray-600 leading-relaxed font-medium">
                         <span class="en">Review course objectives, discuss MEXT curriculum guidelines, and enjoy a guided tour of the British Hills Manor House.</span>
                         <span class="ja">コース目標の確認、文部科学省(MEXT) の学習指導要領についての議論、そしてブリティッシュヒルズ・マナーハウスのガイド付きツアーを楽しみます。</span>
                     </p>
                 </div>
 
                 <!-- Lesson 2 -->
-                <div class="bg-white p-8 rounded-lg border border-slate-200 shadow-sm text-center flex flex-col items-center">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-institution-navy text-white font-bold text-sm mb-4">2</div>
-                    <h3 class="text-xl font-bold text-institution-navy mb-2">
+                <div class="bg-pamphlet-light p-8 border border-gray-200 text-center flex flex-col items-center">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-pamphlet-navy text-white font-bold text-sm mb-4">2</div>
+                    <h3 class="text-xl font-bold text-pamphlet-navy mb-2">
                         <span class="en">Introduction to CLT</span>
                         <span class="ja">CLT (コミュニカティブ言語指導法)入門</span>
                     </h3>
-                    <p class="text-slate-600 leading-relaxed font-medium">
+                    <p class="text-gray-600 leading-relaxed font-medium">
                         <span class="en">Analyse your own teaching style, discuss the benefits of communicative classrooms, and explore PPP and TBL methodologies.</span>
                         <span class="ja">ご自身の教授スタイルを分析し、コミュニケーションを重視した教室の利点を議論するとともに、PPPやTBLといった教授法を探究します。</span>
                     </p>
                 </div>
 
                 <!-- Lesson 3 -->
-                <div class="bg-white p-8 rounded-lg border border-slate-200 shadow-sm text-center flex flex-col items-center">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-institution-navy text-white font-bold text-sm mb-4">3</div>
-                    <h3 class="text-xl font-bold text-institution-navy mb-2">
+                <div class="bg-pamphlet-light p-8 border border-gray-200 text-center flex flex-col items-center">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-pamphlet-navy text-white font-bold text-sm mb-4">3</div>
+                    <h3 class="text-xl font-bold text-pamphlet-navy mb-2">
                         <span class="en">Classroom English</span>
                         <span class="ja">クラスルーム・イングリッシュ</span>
                     </h3>
-                    <p class="text-slate-600 leading-relaxed font-medium">
+                    <p class="text-gray-600 leading-relaxed font-medium">
                         <span class="en">Master effective "Classroom English." Identify key phrases for instructions for setting up activities and learn to use ICQs and CCQs correctly and confidently.</span>
                         <span class="ja">効果的な「クラスルーム・イングリッシュ」をマスターします。指示を出すためのフレーズを復習し、自信を持ってアクティビティを導入する練習を行います。</span>
                     </p>
                 </div>
 
                 <!-- Lesson 4 & 5 -->
-                <div class="bg-white p-8 rounded-lg border border-slate-200 shadow-sm text-center flex flex-col items-center">
+                <div class="bg-pamphlet-light p-8 border border-gray-200 text-center flex flex-col items-center">
                     <div class="flex flex-col items-center mb-4">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-institution-accent text-white font-bold text-xs mb-2">4&5</div>
-                        <div class="text-xs font-bold text-institution-accent uppercase tracking-wider">Double Session</div>
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-pamphlet-teal text-white font-bold text-xs mb-2">4&5</div>
+                        <div class="text-xs font-bold text-pamphlet-teal uppercase tracking-wider">Double Session</div>
                     </div>
-                    <h3 class="text-xl font-bold text-institution-navy mb-2">
+                    <h3 class="text-xl font-bold text-pamphlet-navy mb-2">
                         <span class="en">Communicative Activities</span>
                         <span class="ja">コミュニカティブ・アクティビティ</span>
                     </h3>
-                    <p class="text-slate-600 leading-relaxed font-medium">
+                    <p class="text-gray-600 leading-relaxed font-medium">
                         <span class="en">Go over a booklet of activities, identify how to use them for fun lessons, and access the online materials maker.</span>
                         <span class="ja">アクティビティ・ブックレットの内容を確認し、楽しいレッスンのための活用方法を特定します。また、オンライン教材作成ツール (メーカー) にもアクセスします。</span>
                     </p>
                 </div>
 
                 <!-- Lesson 6 & 7 -->
-                <div class="bg-white p-8 rounded-lg border border-slate-200 shadow-sm text-center flex flex-col items-center">
+                <div class="bg-pamphlet-light p-8 border border-gray-200 text-center flex flex-col items-center">
                     <div class="flex flex-col items-center mb-4">
-                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-institution-accent text-white font-bold text-xs mb-2">6&7</div>
-                        <div class="text-xs font-bold text-institution-accent uppercase tracking-wider">Final Session</div>
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-pamphlet-teal text-white font-bold text-xs mb-2">6&7</div>
+                        <div class="text-xs font-bold text-pamphlet-teal uppercase tracking-wider">Final Session</div>
                     </div>
-                    <h3 class="text-xl font-bold text-institution-navy mb-2">
+                    <h3 class="text-xl font-bold text-pamphlet-navy mb-2">
                         <span class="en">Lesson Creation and Presentations</span>
                         <span class="ja">レッスン作成とプレゼンテーション</span>
                     </h3>
-                    <p class="text-slate-600 leading-relaxed font-medium">
+                    <p class="text-gray-600 leading-relaxed font-medium">
                         <span class="en">Create a full CLT lesson plan (PPP or TBL), prepare materials, and present to the class for feedback.</span>
                         <span class="ja">CLTに基づいたフルレッスンプラン (PPPまたはTBL形式)を作成し、教材を準備して、クラスで発表を行いフィードバックを受けます。</span>
                     </p>
@@ -247,20 +265,20 @@
     </section>
 
     <!-- Information & Call to Action -->
-    <section class="py-20 bg-institution-light border-t border-slate-200">
+    <section class="py-20 bg-pamphlet-navy border-t border-gray-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Information Box -->
-            <div class="mb-16 bg-blue-50 border border-blue-200 rounded-lg p-6 sm:p-8 flex flex-col items-center text-center gap-4">
-                <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full text-blue-700">
+            <div class="mb-16 bg-white/5 border border-white/10 rounded-sm p-6 sm:p-8 flex flex-col items-center text-center gap-4 max-w-2xl mx-auto backdrop-blur-sm">
+                <div class="flex-shrink-0 bg-pamphlet-teal/20 p-3 rounded-full text-pamphlet-teal">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
                 </div>
                 <div>
-                    <h4 class="text-blue-900 font-bold text-lg mb-2">
+                    <h4 class="text-pamphlet-teal font-bold text-lg mb-2">
                         <span class="en">Important Preparation Requirement</span>
                         <span class="ja">事前準備のお願い</span>
                     </h4>
-                    <p class="text-blue-800 leading-relaxed font-medium max-w-2xl mx-auto">
+                    <p class="text-gray-300 leading-relaxed font-medium">
                         <span class="en">Participants are requested to bring their EFL textbook in order to create a lesson for their classes.</span>
                         <span class="ja">実際の授業に向けたレッスン案を作成するため、お使いの英語教科書 (EFL教科書)を各自ご持参ください。</span>
                     </p>
@@ -268,17 +286,17 @@
             </div>
 
             <!-- CTA Center -->
-            <div class="text-center bg-white p-10 sm:p-14 rounded-xl border border-institution-border shadow-sm">
-                <h2 class="text-3xl font-bold text-institution-navy mb-4">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">
                     <span class="en">Ready to Elevate Your Teaching?</span>
                     <span class="ja">確かなスキルを身につけませんか？</span>
                 </h2>
-                <p class="text-lg text-slate-600 mb-8 max-w-2xl mx-auto font-medium">
+                <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto font-medium">
                     <span class="en">Join us to gain the skills to create solid lesson plans and make your classes engaging.</span>
                     <span class="ja">確かなレッスンプランを作成するスキルを身につけ、魅力的な授業を作り上げるために、ぜひ私たちと一緒に学びましょう。</span>
                 </p>
                 
-                <a href="mailto:inquiries@british-hills.co.jp" class="inline-flex items-center justify-center gap-2 bg-institution-navy text-white font-bold text-lg px-8 py-4 rounded-lg hover:bg-institution-blue transition-colors duration-200 shadow-sm w-full sm:w-auto">
+                <a href="mailto:inquiries@british-hills.co.jp" class="inline-flex items-center justify-center gap-2 bg-pamphlet-teal text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-[#009675] transition-colors duration-200 shadow-lg w-full sm:w-auto">
                     <span class="en">Inquire Now</span>
                     <span class="ja">お問い合わせ</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -288,8 +306,8 @@
     </section>
     
     <!-- Footer -->
-    <footer class="bg-institution-navy py-8 text-center border-t border-slate-800">
-        <p class="text-slate-400 text-sm font-medium">&copy; <span id="year"></span> British Hills. All rights reserved.</p>
+    <footer class="bg-[#090e1a] py-8 text-center border-t border-gray-800">
+        <p class="text-gray-500 text-sm font-medium">&copy; <span id="year"></span> British Hills. All rights reserved.</p>
     </footer>
 
     <!-- Logic for Language Switching -->
@@ -305,8 +323,8 @@
             body.classList.add('lang-' + lang);
 
             // Active State Styling
-            const activeClasses = "px-5 py-1.5 text-sm font-semibold transition-colors duration-200 bg-white text-institution-navy rounded-full shadow-sm border border-slate-200";
-            const inactiveClasses = "px-5 py-1.5 text-sm font-semibold transition-colors duration-200 text-slate-500 hover:text-institution-navy rounded-full border border-transparent";
+            const activeClasses = "px-5 py-1.5 text-sm font-semibold transition-colors duration-200 bg-white text-pamphlet-navy rounded-full shadow-sm border border-gray-200";
+            const inactiveClasses = "px-5 py-1.5 text-sm font-semibold transition-colors duration-200 text-gray-500 hover:text-pamphlet-navy rounded-full border border-transparent";
 
             if (lang === 'en') {
                 btnEn.className = activeClasses;
